@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 from tastypie.api import Api
 from inventory.api.category_resource import CategoriesResource
 from inventory.api.sub_category_resource import SubCategoryResource
 from inventory.api.products_resource import ProductResource
+from inventory import views
+from ockypocky import settings
 
 api = Api(api_name='v1')
 api.register(CategoriesResource())
@@ -27,5 +30,7 @@ api.register(ProductResource())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(api.urls))
-]
+    url(r'^api/', include(api.urls)),
+    url(r'^displayProducts',views.displayProductsData)
+    ]
+# ] + static(settings.STATIC_URL)

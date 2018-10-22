@@ -12,6 +12,7 @@ class ProductResource(ModelResource):
     class Meta:
         queryset = Products.objects.all()
         allowed_methods = ['get', 'post']
+        resource_name = 'products'
         filtering = {
             'sub_category': ALL_WITH_RELATIONS,
             'id': ALL,
