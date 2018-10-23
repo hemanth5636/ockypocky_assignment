@@ -11,7 +11,7 @@ def getProductsData():
         product['name'] = productData.name
         product['details'] = productData.details
         product['sub_category'] = productData.sub_category.name
-        product['category'] = productData.sub_category.category
+        product['category'] = productData.sub_category.category.name
 
         products.append(product)
         print(product)

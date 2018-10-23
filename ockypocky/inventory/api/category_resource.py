@@ -7,7 +7,7 @@ class CategoriesResource(ModelResource):
 
     class Meta:
         queryset = Categories.objects.all()
-        allowed_methods = ['get']
+        list_allowed_methods = ['get', 'post']
         filtering = {
             'id': ALL,
             'name': ALL,

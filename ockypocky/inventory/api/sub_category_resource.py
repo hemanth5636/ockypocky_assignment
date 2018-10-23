@@ -11,7 +11,7 @@ class SubCategoryResource(ModelResource):
 
     class Meta:
         queryset = SubCategories.objects.all()
-        allowed_methods = ['get']
+        list_allowed_methods = ['get', 'post']
         filtering = {
             'category': ALL_WITH_RELATIONS,
             'id': ALL,

@@ -1,4 +1,5 @@
 from tastypie import fields
+from tastypie.authorization import Authorization
 from tastypie.constants import ALL_WITH_RELATIONS, ALL
 from tastypie.resources import ModelResource
 from ..models import Products
@@ -11,7 +12,8 @@ class ProductResource(ModelResource):
 
     class Meta:
         queryset = Products.objects.all()
-        allowed_methods = ['get', 'post']
+        list_allowed_methods = ['get', 'post']
+        authorization = Authorization()
         resource_name = 'products'
         filtering = {
             'sub_category': ALL_WITH_RELATIONS,
